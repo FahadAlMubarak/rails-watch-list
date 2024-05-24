@@ -1,20 +1,17 @@
 
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), asset-url(theater.jpeg);">
-  <div class="container">
+<div class="banner d-flex justify-content-center align-items-center" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), asset-url(theater.jpeg);">
     <h1>Your Movie Lists</h1>
   </div>
-</div>
 
 <div class="container">
   <div class="row">
     <% @lists.each do |list| %>
       <div class="col-md-4">
-        <div class="card">
-            <%= image_tag "card.jpg", class: "card-img-top", alt: list.name %>
-          <div class="card-body">
-            <h2 class="card-title "><%= link_to list.name, list_path(list), class: 'text-decoration-none' %></h2>
+        <%= link_to list_path(list), class: 'text-decoration-none' do %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.photo.attached? ?  (cl_image_path list.photo.key) : asset_path("card.jpeg") %>);">
+            <h2 class="text-center"><%= list.name %></h2>
           </div>
-        </div>
+        <% end %>
       </div>
        <% end %>
     </div>
