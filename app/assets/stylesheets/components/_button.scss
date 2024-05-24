@@ -1,0 +1,21 @@
+
+.custom-button {
+  background: linear-gradient(135deg, #6f42c1 0%, #6610f2 100%);
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 1.25rem;
+  transition: background 0.3s ease;
+
+  &:hover {
+    background: linear-gradient(135deg, #6610f2 0%, #6f42c1 100%);
+    color: #fff;
+    text-decoration: none;
+  }
+
+  &:focus,
+  &:active {
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(102, 16, 242, 0.5);
+  }
+}
